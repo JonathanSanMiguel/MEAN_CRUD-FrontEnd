@@ -1,41 +1,23 @@
 <div class="row">
 
-    <div class="card">
-        <h1> Ingrese los datos del empleado </h1>
+    <div class="card" [formGroup]="formularioCRUD" (ngSubmit)="Post()">
+        <h2> Ingrese los datos del empleado </h2>
         <form>
-            <input type="text" placeholder="Ingrese su nombre">
+            <label> Nombre: </label>
+            <input type="text" formControlName="name" placeholder="Ingrese su Nombre" required>
 
-            <input type="text">
+            <label> Posicion: </label>
+            <input type="text" formControlName="position" placeholder="Ingrese la Posicion" required>
 
-            <input type="text">
-            <label> Ingrese el Salario: </label>
-            <input type="text">
+            <label> Oficina: </label>
+            <input type="text" formControlName="office" placeholder="Ingrese la Oficina" required>
+
+            <label> Salario: </label>
+            <input type="number" formControlName="salary" placeholder="Ingrese el Salario" required>
+
+            <button type="submit"> Agregar </button>
         </form>
     </div>
-
-    <!-- <div class="container">
-        <table class="blue">
-            <thead>
-                <tr>
-                    <th> Nombre: </th>
-
-                    <th> Posicion: </th>
-
-                    <th> Oficina: </th>
-
-                    <th> Operaciones </th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Non</td>
-                    <td>Mais</td>
-                    <td>Allo !</td>
-                    <td> hola</td>
-                </tr>
-            </tbody>
-        </table>
-    </div> -->
 
     <div class="divTabla">
         <table>
@@ -61,27 +43,8 @@
                 <td>The easing of the show/reveal</td>
                 <td> 2000 </td>
               </tr>
-              <tr>
-                <td><strong> Maria Perez </strong></td>
-                <td> Cordinador </td>
-                <td>The easing of the show/reveal</td>
-                <td> 3000 </td>
-              </tr>
-              <tr>
-                <td><strong> Jona Alexis</strong></td>
-                <td> Consultor </td>
-                <td>The easing of the show/reveal</td>
-                <td> 8000 </td>
-              </tr>
-              <tr>
-                <td><strong> Juan Ignacio </strong></td>
-                <td> Vendedor </td>
-                <td>The easing of the show/reveal</td>
-                <td> 1000 </td>
-              </tr>
             </tbody>
         </table>
     </div>
-
 
 </div>

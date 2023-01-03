@@ -1,6 +1,6 @@
 <div class="row">
 
-  <div class="card" [formGroup]="formularioCRUD" (ngSubmit)="Post()">
+  <div class="card" [formGroup]="formularioCRUD" (ngSubmit)="addEmpleado()">
     <h2> Ingrese los datos del empleado </h2>
     <hr>
     <form>
@@ -16,12 +16,12 @@
       <label> Salario: </label>
       <input type="number" formControlName="salary" placeholder="Ingrese el Salario" required>
 
-      <button type="submit"> Agregar </button>
+      <button type="submit"><i></i> Agregar </button>
     </form>
   </div>
 
   <div class="divTabla">
-    <span> Seleccione un registro para editarlo </span>
+    <span> <img src="" alt=""> Seleccione un registro para editarlo </span>
     <table>
       <thead>
         <tr>

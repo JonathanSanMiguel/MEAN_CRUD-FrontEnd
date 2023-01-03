@@ -18,6 +18,25 @@ export class EmployeeComponent implements OnInit {
   // El get de todos los empleados esta +
   // en el ngOnInit para iniciarlo con la UI
   ngOnInit(): void {
+    this.getEmpleado()
+  }
+
+  // Validacion de los datos del form.
+  formularioCRUD: FormGroup = this.fb.group({
+    name: ['', [Validators.required, Validators.maxLength(25)]],
+    position: ['', [Validators.required, Validators.maxLength(12)]],
+    office: ['', [Validators.required, Validators.maxLength(10)]],
+    salary: ['', [Validators.required, Validators.maxLength(10), Validators.minLength(3)]]
+  })
+
+  // Metodo para enviarle los valores al servicio.
+  addEmpleado(){
+    const { name, position, office, salary } = this.formularioCRUD.value
+
+    this.employeService.Create( name, position, office, salary )
+  }
+
+  getEmpleado(){
     this.employeService.Read().subscribe(
       (res) => {
         this.items = res
@@ -25,22 +44,6 @@ export class EmployeeComponent implements OnInit {
       (err) => {console.log(err)}
     )
   }
-
-  // Validacion de los datos del form.
-  formularioCRUD: FormGroup = this.fb.group({
-    name: ['', [Validators.required, Validators.maxLength(20)]],
-    position: ['', [Validators.required, Validators.maxLength(12)]],
-    office: ['', [Validators.required, Validators.maxLength(10)]],
-    salary: ['', [Validators.required, Validators.maxLength(10), Validators.minLength(3)]]
-  })
-
-  // Metodo para enviarle los valores al servicio.
-  Post(){
-    const { name, position, office, salary } = this.formularioCRUD.value
-
-    this.employeService.Create( name, position, office, salary )
-  }
-
 
   //El observable sirve para quedarse escuchando posibles cambios
 

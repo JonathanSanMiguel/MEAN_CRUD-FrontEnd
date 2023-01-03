@@ -1,50 +1,48 @@
 <div class="row">
 
-    <div class="card" [formGroup]="formularioCRUD" (ngSubmit)="Post()">
-        <h2> Ingrese los datos del empleado </h2>
-        <form>
-            <label> Nombre: </label>
-            <input type="text" formControlName="name" placeholder="Ingrese su Nombre" required>
+  <div class="card" [formGroup]="formularioCRUD" (ngSubmit)="Post()">
+    <h2> Ingrese los datos del empleado </h2>
+    <hr>
+    <form>
+      <label> Nombre: </label>
+      <input type="text" formControlName="name" placeholder="Ingrese su Nombre" required>
 
-            <label> Posicion: </label>
-            <input type="text" formControlName="position" placeholder="Ingrese la Posicion" required>
+      <label> Posicion: </label>
+      <input type="text" formControlName="position" placeholder="Ingrese la Posicion" required>
 
-            <label> Oficina: </label>
-            <input type="text" formControlName="office" placeholder="Ingrese la Oficina" required>
+      <label> Oficina: </label>
+      <input type="text" formControlName="office" placeholder="Ingrese la Oficina" required>
 
-            <label> Salario: </label>
-            <input type="number" formControlName="salary" placeholder="Ingrese el Salario" required>
+      <label> Salario: </label>
+      <input type="number" formControlName="salary" placeholder="Ingrese el Salario" required>
 
-            <button type="submit"> Agregar </button>
-        </form>
-    </div>
+      <button type="submit"> Agregar </button>
+    </form>
+  </div>
 
-    <div class="divTabla">
-        <table>
-            <thead>
-              <tr>
-                <th> Nombre </th>
-                <th> Posicion </th>
-                <th> Oficina </th>
-                <th> Salario </th>
-              </tr>
-            </thead>
-    
-            <tbody>
-              <tr>
-                <td><strong> Jesus Gonazalez </strong></td>
-                <td> Desarrolador </td>
-                <td>The speed of the show/reveal</td>
-                <td> 4000 </td>
-              </tr>
-              <tr>
-                <td><strong> Jose Sanchez </strong></td>
-                <td> Q-A </td>
-                <td>The easing of the show/reveal</td>
-                <td> 2000 </td>
-              </tr>
-            </tbody>
-        </table>
-    </div>
+  <div class="divTabla">
+    <span> Seleccione un registro para editarlo </span>
+    <table>
+      <thead>
+        <tr>
+          <th> # </th>
+          <th> Nombre </th>
+          <th> Posicion </th>
+          <th> Oficina </th>
+          <th> Salario </th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr *ngFor="let item of items; let i = index" >
+          <td> {{i + 1}} </td>
+          <td><strong> {{item.name}} </strong></td>
+          <td> {{item.position}} </td>
+          <td> {{item.office}} </td>
+          <td> {{item.salary}} </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 
 </div>

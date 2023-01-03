@@ -8,13 +8,14 @@ import { EmployeeResponse } from '../interfaces/employee.interface';
   providedIn: 'root'
 })
 export class EmployeeService {
-
+  // Inyeccion de los servicios
   constructor( private http: HttpClient ) { }
 
   // Endpoint de la api REST
   private Api_Url = 'http://localhost:4000/rest'
 
 
+  // Metodo para crear un nuevo Empleado
   Create(name: string, position: string, office: string, salary: number){
 
     const Url = `${this.Api_Url}/create`
@@ -26,10 +27,10 @@ export class EmployeeService {
     )
   }
   
-
-  Read(){
+  // Metodo para obtener todos los empleados
+  Read(): Observable<EmployeeResponse[]>{
     const Url = `${this.Api_Url}/employees`
-    return this.http.get<EmployeeResponse>(Url)
+    return this.http.get<EmployeeResponse[]>(Url)
   }
   
 

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { EmployeeService } from '../../services/employee.service';
+import { EmployeeResponse } from '../../interfaces/employee.interface';
 
 @Component({
   selector: 'app-employee',
@@ -9,13 +10,19 @@ import { EmployeeService } from '../../services/employee.service';
 })
 
 export class EmployeeComponent implements OnInit {
+  items: EmployeeResponse[] = []
 
   // Inyeccion de los servicios.
   constructor( private fb: FormBuilder, private employeService: EmployeeService){}
 
+  // El get de todos los empleados esta +
+  // en el ngOnInit para iniciarlo con la UI
   ngOnInit(): void {
     this.employeService.Read().subscribe(
-      res => console.log(res)
+      (res) => {
+        this.items = res
+      },
+      (err) => {console.log(err)}
     )
   }
 

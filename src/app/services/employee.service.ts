@@ -21,8 +21,7 @@ export class EmployeeService {
     const Url = `${this.Api_Url}/create`
     const Body = { name, position, office, salary }
 
-    return this.http.post<EmployeeResponse[]>(Url, Body).pipe(
-      tap(res => res),
+    return this.http.post(Url, Body).pipe(
       catchError(err => of(err.error.msg))
     )
   }

@@ -34,6 +34,11 @@ export class EmployeeComponent implements OnInit {
     const { name, position, office, salary } = this.formularioCRUD.value
 
     this.employeService.Create( name, position, office, salary )
+      .subscribe(res => {
+        this.getEmpleado()
+      },
+      err => console.log(err)
+    )
   }
 
   getEmpleado(){

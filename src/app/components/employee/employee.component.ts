@@ -36,8 +36,8 @@ export class EmployeeComponent implements OnInit {
     this.employeService.Create( name, position, office, salary )
       .subscribe(res => {
         this.getEmpleado()
-      },
-      err => console.log(err)
+        this.formularioCRUD.reset()
+      }
     )
   }
 
@@ -45,8 +45,7 @@ export class EmployeeComponent implements OnInit {
     this.employeService.Read().subscribe(
       (res) => {
         this.items = res
-      },
-      (err) => {console.log(err)}
+      }
     )
   }
 

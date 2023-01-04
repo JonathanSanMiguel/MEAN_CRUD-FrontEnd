@@ -1,32 +1,47 @@
-<div class="row">
 
-  <div class="card" [formGroup]="formularioCRUD" (ngSubmit)="addEmpleado()">
-    <h2> Ingrese los datos del empleado </h2>
+
+<div class="cardFull" [formGroup]="formularioCRUD" (ngSubmit)="addEmpleado()">
+    <h2> Ingrese los datos del empleado <i class="fa-solid fa-person-circle-plus"></i> </h2>
     <hr>
     <form>
-      <label> Nombre: </label>
-      <input type="text" formControlName="name" placeholder="Ingrese su Nombre" required>
+      <label>
+        <i class="fa-solid fa-user"></i> 
+        Nombre(s): 
+      </label>
+      <input type="text" formControlName="name" placeholder="Ingrese El Nombre" required>
 
-      <label> Posicion: </label>
+      <label>
+        <i class="fa-solid fa-people-group"></i>
+        Posicion: 
+      </label>
       <input type="text" formControlName="position" placeholder="Ingrese la Posicion" required>
 
-      <label> Oficina: </label>
+      <label>
+        <i class="fa-regular fa-building"></i>
+        Oficina:
+      </label>
       <input type="text" formControlName="office" placeholder="Ingrese la Oficina" required>
 
-      <label> Salario: </label>
+      <label>
+        <i class="fa-solid fa-money-bill-1-wave"></i>
+        Salario: 
+      </label>
       <input type="number" formControlName="salary" placeholder="Ingrese el Salario" required>
 
-      <button type="submit"><i></i> Agregar </button>
+      <button type="submit"> Agregar <i class="fa-solid fa-floppy-disk"></i></button>
     </form>
   </div>
 
+  <div class="divSpan">
+    <span><i class="fa-solid fa-circle-info"></i> Seleccione un registro para editarlo </span>
+  </div>
+
   <div class="divTabla">
-    <span> <img src="" alt=""> Seleccione un registro para editarlo </span>
     <table>
       <thead>
         <tr>
           <th> # </th>
-          <th> Nombre </th>
+          <th> Nombre(s) </th>
           <th> Posicion </th>
           <th> Oficina </th>
           <th> Salario </th>
@@ -44,5 +59,3 @@
       </tbody>
     </table>
   </div>
-
-</div>

@@ -1,61 +1,61 @@
-
-
+<!-- Form -->
 <div class="cardFull" [formGroup]="formularioCRUD" (ngSubmit)="addEmpleado()">
-    <h2> Ingrese los datos del empleado <i class="fa-solid fa-person-circle-plus"></i> </h2>
-    <hr>
-    <form>
-      <label>
-        <i class="fa-solid fa-user"></i> 
-        Nombre(s): 
-      </label>
-      <input type="text" formControlName="name" placeholder="Ingrese El Nombre" required>
+  <h2> Ingrese los datos del empleado <i class="fa-solid fa-person-circle-plus"></i> </h2>
+  <hr>
+  <form>
+    <label>
+      <i class="fa-solid fa-user"></i> 
+      Nombre(s): 
+    </label>
+    <input type="text" formControlName="name" placeholder="Ingrese El Nombre" required>
 
-      <label>
-        <i class="fa-solid fa-people-group"></i>
-        Posicion: 
-      </label>
-      <input type="text" formControlName="position" placeholder="Ingrese la Posicion" required>
+    <label>
+      <i class="fa-solid fa-people-group"></i>
+      Posicion: 
+    </label>
+    <input type="text" formControlName="position" placeholder="Ingrese la Posicion" required>
 
-      <label>
-        <i class="fa-regular fa-building"></i>
-        Oficina:
-      </label>
-      <input type="text" formControlName="office" placeholder="Ingrese la Oficina" required>
+    <label>
+      <i class="fa-regular fa-building"></i>
+      Oficina:
+    </label>
+    <input type="text" formControlName="office" placeholder="Ingrese la Oficina" required>
 
-      <label>
-        <i class="fa-solid fa-money-bill-1-wave"></i>
-        Salario: 
-      </label>
-      <input type="number" formControlName="salary" placeholder="Ingrese el Salario" required>
+    <label>
+      <i class="fa-solid fa-money-bill-1-wave"></i>
+      Salario: 
+    </label>
+    <input type="number" formControlName="salary" placeholder="Ingrese el Salario" required>
 
-      <button type="submit"> Agregar <i class="fa-solid fa-floppy-disk"></i></button>
-    </form>
-  </div>
+    <button type="submit"> Agregar <i class="fa-solid fa-floppy-disk"></i></button>
+  </form>
+</div>
 
-  <div class="divSpan">
-    <span><i class="fa-solid fa-circle-info"></i> Seleccione un registro para editarlo </span>
-  </div>
+<!-- Tabla -->
+<div class="divSpan">
+  <span><i class="fa-solid fa-circle-info"></i> Seleccione un registro para editarlo </span>
+</div>
 
-  <div class="divTabla">
-    <table>
-      <thead>
-        <tr>
-          <th> # </th>
-          <th> Nombre(s) </th>
-          <th> Posicion </th>
-          <th> Oficina </th>
-          <th> Salario </th>
-        </tr>
-      </thead>
+<div class="divTabla">
+  <table>
+    <thead>
+      <tr>
+        <th> # </th>
+        <th> Nombre(s) </th>
+        <th> Posicion </th>
+        <th> Oficina </th>
+        <th> Salario </th>
+      </tr>
+    </thead>
 
-      <tbody>
-        <tr *ngFor="let item of items; let i = index" >
-          <td> {{i + 1}} </td>
-          <td><strong> {{item.name}} </strong></td>
-          <td> {{item.position}} </td>
-          <td> {{item.office}} </td>
-          <td> {{item.salary}} </td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
+    <tbody>
+      <tr *ngFor="let item of items; let i = index" >
+        <td> {{i + 1}} </td>
+        <td><strong> {{item.name}} </strong></td>
+        <td> {{item.position}} </td>
+        <td> {{item.office}} </td>
+        <td> {{item.salary}} </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

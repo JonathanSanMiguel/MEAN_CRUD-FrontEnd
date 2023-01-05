@@ -8,7 +8,7 @@ import { EmployeeService } from '../../services/employee.service';
 })
 export class ModalComponent {
 
-  constructor( private employeeService: EmployeeService ){}
+  constructor( private employeeService: EmployeeService, ){}
 
   closeModal(){
     this.employeeService.modal.emit(false)
@@ -18,9 +18,13 @@ export class ModalComponent {
     console.log('Actualizando');
   }
 
-  deleteEmployee(){
+  deleteEmployee(id: string){
     const res = confirm('Estas seguro de borrar este Empleado?')
-    console.log(res);
+    if (res) {
+      this.employeeService.Delete(id)
+    } else {
+      
+    }
   }
 
 }

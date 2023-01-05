@@ -25,7 +25,7 @@ export class EmployeeComponent implements OnInit {
 
   // Validacion de los datos del form.
   formularioCRUD: FormGroup = this.fb.group({
-    name: ['', [Validators.required, Validators.maxLength(25)]],
+    name: ['',[Validators.required,  Validators.minLength(4), Validators.maxLength(25)]],
     position: ['', [Validators.required, Validators.maxLength(12)]],
     office: ['', [Validators.required, Validators.maxLength(10)]],
     salary: ['', [Validators.required, Validators.maxLength(10), Validators.minLength(3)]]
@@ -41,8 +41,13 @@ export class EmployeeComponent implements OnInit {
 
     this.employeService.Create( name, position, office, salary )
       .subscribe(res => {
-        this.getEmpleado()
-        this.formularioCRUD.reset()
+        if (res === true) {
+          this.getEmpleado()
+          this.formularioCRUD.reset()  
+          console.log(res.msg)
+        } else {
+          console.log(res);
+        }
       }
     )
   }
@@ -55,7 +60,17 @@ export class EmployeeComponent implements OnInit {
     )
   }
 
+  deleteEmployee(id: string){
+    const res = confirm('Estas seguro de borrar este Empleado?')
+    if (res === true ) {
+      this.employeService.Delete(id)
+        .subscribe(res => {
+          this.getEmpleado()
+          console.log(res);
+        }
+      )
+    }
+  }
+
   //El observable sirve para quedarse escuchando posibles cambios
-
-
 }

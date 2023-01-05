@@ -23,11 +23,15 @@ export class EmployeeService {
     const Url = `${this.Api_Url}/create`
     const Body = { name, position, office, salary }
 
-    return this.http.post(Url, Body).pipe(
+    return this.http.post<EmployeeResponse>(Url, Body).pipe(
+      //Si sale bien retorna la resp.state.
+      map(resp => resp.state),
+      //Si ocurre un error, retorna el mensaje de error.
       catchError(err => of(err.error.msg))
     )
   }
   
+
   // Metodo para obtener todos los empleados
   Read(): Observable<EmployeeResponse[]>{
     const Url = `${this.Api_Url}/employees`
@@ -38,5 +42,7 @@ export class EmployeeService {
   Update(){}
 
 
-  Delete(){}
+  Delete(_id: string){
+    return this.http.delete(`${this.Api_Url}/delete/${_id}`)
+  }
 }

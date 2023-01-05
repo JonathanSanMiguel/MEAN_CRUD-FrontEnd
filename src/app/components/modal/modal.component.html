@@ -13,6 +13,7 @@
         Posicion: 
       </label>
       <input type="text" formControlName="position" placeholder="Ingrese la Posicion" required>
+
       <label>
         <i class="fa-regular fa-building"></i>
         Oficina:
@@ -25,22 +26,30 @@
       </label>
       <input type="number" formControlName="salary" placeholder="Ingrese el Salario" required>
 
-        <div class="divDate">
-            <label>
-            <i class="fa-solid fa-calendar-days"></i>
-            Empleado Creado el: 22/66/2023
-          </label>
-    
-          <label>
-            <i class="fa-solid fa-clock"></i>
-            Ultima vez actualizado: 22/66/2023
-          </label>
+      <div class="divDate">
+        <label>
+          <i class="fa-solid fa-calendar-days"></i>
+          Empleado Creado el: 22/66/2023
+        </label>
+  
+        <label>
+          <i class="fa-solid fa-clock"></i>
+          Ultima vez actualizado: 22/66/2023
+        </label>
       </div>
 
       <div>
-        <button class="btnCancelar" (click)="closeModal()"> Cancelar <i class="fa-solid fa-ban"></i></button>
-        <button class="btnEditar" type="submit"> Agregar Cambios <i class="fa-solid fa-floppy-disk"></i></button>
-        <button class="btnEliminar" (click)="deleteEmployee()" > ELIMINAR <i class="fa-solid fa-trash-can"></i></button>
+        <button class="btnCancelar" (click)="closeModal()"> 
+          Cancelar <i class="fa-solid fa-ban"></i>
+        </button>
+
+        <button class="btnEditar" type="submit"> 
+          Agregar Cambios <i class="fa-solid fa-floppy-disk"></i>
+        </button>
+
+        <!-- <button class="btnEliminar" (click)="deleteEmployee(EmployeeResponse._id)">
+          ELIMINAR <i class="fa-solid fa-trash-can"></i>
+        </button> -->
       </div>
     </form>
   </div>

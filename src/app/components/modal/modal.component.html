@@ -1,6 +1,6 @@
 <!-- Ventana Modal -->
 <div class="bgModal">
-  <div class="modalContent">
+  <div class="modalContent" (ngSubmit)="updateEmpleado()" >
     <form class="formModal">
       <label>
         <i class="fa-solid fa-user"></i> 
@@ -40,7 +40,7 @@
       <div>
         <button class="btnCancelar" (click)="closeModal()"> Cancelar <i class="fa-solid fa-ban"></i></button>
         <button class="btnEditar" type="submit"> Agregar Cambios <i class="fa-solid fa-floppy-disk"></i></button>
-        <button class="btnEliminar"> ELIMINAR <i class="fa-solid fa-trash-can"></i></button>
+        <button class="btnEliminar" (click)="deleteEmployee()" > ELIMINAR <i class="fa-solid fa-trash-can"></i></button>
       </div>
     </form>
   </div>

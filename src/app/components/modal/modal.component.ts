@@ -14,4 +14,13 @@ export class ModalComponent {
     this.employeeService.modal.emit(false)
   }
 
+  updateEmpleado(){
+    console.log('Actualizando');
+  }
+
+  deleteEmployee(){
+    const res = confirm('Estas seguro de borrar este Empleado?')
+    console.log(res);
+  }
+
 }

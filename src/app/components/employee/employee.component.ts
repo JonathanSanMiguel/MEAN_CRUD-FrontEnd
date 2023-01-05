@@ -11,14 +11,16 @@ import { EmployeeResponse } from '../../interfaces/employee.interface';
 
 export class EmployeeComponent implements OnInit {
   items: EmployeeResponse[] = []
+  SwitchModal: Boolean = false
 
   // Inyeccion de los servicios.
-  constructor( private fb: FormBuilder, private employeService: EmployeeService){}
+  constructor( private fb: FormBuilder, private employeService: EmployeeService ){}
 
   // El get de todos los empleados esta +
   // en el ngOnInit para iniciarlo con la UI
   ngOnInit(): void {
     this.getEmpleado()
+    this.employeService.modal.subscribe((valor) => { this.SwitchModal = valor })
   }
 
   // Validacion de los datos del form.
@@ -28,6 +30,10 @@ export class EmployeeComponent implements OnInit {
     office: ['', [Validators.required, Validators.maxLength(10)]],
     salary: ['', [Validators.required, Validators.maxLength(10), Validators.minLength(3)]]
   })
+
+  openModal(){
+    this.SwitchModal = true
+  }
 
   // Metodo para enviarle los valores al servicio.
   addEmpleado(){

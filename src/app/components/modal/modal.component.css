@@ -1,0 +1,107 @@
+/* Moodal */
+.bgModal{
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    /* opacity: 0.7; */
+    position: absolute;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modalContent{
+    width: 500px;
+    height: 700px;
+    border-radius: 4px;
+}
+
+.formModal{
+    background-color: #fff5f5;
+    padding: 30px;
+    border-radius: 15px;
+}
+
+label{
+    color: #2d362c;
+    font-size: 19px;
+    font: sans-serif;
+    letter-spacing: 1px;
+    width: 100%;
+    max-width: 100%;
+    margin: 4px;
+}
+
+input{
+    width: 96%;
+    padding: 8px;
+    margin-top: 9px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    border: none;
+    font-family: sans-serif;
+    font-size: 20px;
+}
+
+.divDate{
+    text-align: center;
+    font-size: 10px;
+    margin: 5px;
+}
+
+.btnEditar{
+    border: none;
+    border-radius: 15px;
+    width: 50%;
+    padding: 10px;
+    margin-top: 30px;
+    font-size: 17px;
+    font-family: sans-serif;
+    letter-spacing: 2px;
+    background-color: #47bb3a;
+    color: #2d362c;
+    cursor: pointer;
+}
+.btnEditar:hover{
+    background-color: #1a4a14;
+    color: #fff;
+    border: none;
+}
+
+.btnCancelar{
+    border: none;
+    border-radius: 15px;
+    width: 50%;
+    padding: 10px;
+    margin-top: 30px;
+    font-size: 17px;
+    font-family: sans-serif;
+    letter-spacing: 1px;
+    background-color: #aaa;
+    color: #2d362c;
+    cursor: pointer;
+}
+.btnCancelar:hover{
+    background-color: #2d362c;
+    color: #fff;
+    border: none;
+}
+
+.btnEliminar{
+    border: none;
+    border-radius: 15px;
+    width: 100%;
+    padding: 10px;
+    margin-top: 30px;
+    font-size: 17px;
+    font-family: sans-serif;
+    letter-spacing: 2px;
+    background-color: red;
+    color: #fff;
+    cursor: pointer;
+}
+.btnEliminar:hover{
+    color: black;
+    border: none;
+}

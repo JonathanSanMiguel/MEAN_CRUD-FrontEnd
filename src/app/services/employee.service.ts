@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core'
+import { EventEmitter, Injectable } from '@angular/core'
 import { HttpClient } from '@angular/common/http'
 import { Observable, catchError, map, of, tap } from 'rxjs';
 
@@ -10,6 +10,8 @@ import { EmployeeResponse } from '../interfaces/employee.interface';
 export class EmployeeService {
   // Inyeccion de los servicios
   constructor( private http: HttpClient ) { }
+
+  modal = new EventEmitter()
 
   // Endpoint de la api REST
   private Api_Url = 'http://localhost:4000/rest'

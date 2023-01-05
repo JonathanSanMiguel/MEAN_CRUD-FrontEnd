@@ -1,8 +1,10 @@
 <!-- Form -->
 <div class="cardFull" [formGroup]="formularioCRUD" (ngSubmit)="addEmpleado()">
+
   <h2> Ingrese los datos del empleado <i class="fa-solid fa-person-circle-plus"></i> </h2>
   <hr>
-  <form>
+
+  <form class="formCreate">
     <label>
       <i class="fa-solid fa-user"></i> 
       Nombre(s): 
@@ -27,15 +29,15 @@
     </label>
     <input type="number" formControlName="salary" placeholder="Ingrese el Salario" required>
 
-    <button type="submit"> Agregar <i class="fa-solid fa-floppy-disk"></i></button>
+    <button class="btnAgregar" type="submit"> Agregar <i class="fa-solid fa-floppy-disk"></i></button>
   </form>
 </div>
 
-<!-- Tabla -->
 <div class="divSpan">
   <span><i class="fa-solid fa-circle-info"></i> Seleccione un registro para editarlo </span>
 </div>
 
+<!-- Tabla -->
 <div class="divTabla">
   <table>
     <thead>
@@ -49,13 +51,18 @@
     </thead>
 
     <tbody>
-      <tr *ngFor="let item of items; let i = index" >
+      <tr (click)="openModal()" *ngFor="let item of items; let i = index" >
         <td> {{i + 1}} </td>
-        <td><strong> {{item.name}} </strong></td>
+        <td> <strong> {{item.name}} </strong> </td>
         <td> {{item.position}} </td>
         <td> {{item.office}} </td>
         <td> {{item.salary}} </td>
       </tr>
     </tbody>
   </table>
+</div>
+
+
+<div *ngIf="SwitchModal == true">
+  <app-modal></app-modal>
 </div>

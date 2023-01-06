@@ -1,6 +1,6 @@
 <!-- Ventana Modal -->
 <div class="bgModal">
-  <div class="modalContent" (ngSubmit)="updateEmpleado()" >
+  <div class="modalContent" [formGroup]="formularioUpdate" (ngSubmit)="updateEmpleado()" >
     <form class="formModal">
       <label>
         <i class="fa-solid fa-user"></i> 
@@ -12,7 +12,7 @@
         <i class="fa-solid fa-people-group"></i>
         Posicion: 
       </label>
-      <input type="text" formControlName="position" placeholder="Ingrese la Posicion" required>
+      <input type="text" formControlName="position" placeholder="Ingrese la Posicion" value="items.position" required>
 
       <label>
         <i class="fa-regular fa-building"></i>
@@ -47,7 +47,7 @@
           Agregar Cambios <i class="fa-solid fa-floppy-disk"></i>
         </button>
 
-        <!-- <button class="btnEliminar" (click)="deleteEmployee(EmployeeResponse._id)">
+        <!-- <button class="btnEliminar" (click)="deleteEmployee(items._id)">
           ELIMINAR <i class="fa-solid fa-trash-can"></i>
         </button> -->
       </div>

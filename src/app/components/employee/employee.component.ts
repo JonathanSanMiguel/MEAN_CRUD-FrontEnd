@@ -60,6 +60,10 @@ export class EmployeeComponent implements OnInit {
     )
   }
 
+  updateEmploye(_id: string){
+    console.log(_id);
+  }
+
   deleteEmployee(id: string){
     const res = confirm('Estas seguro de borrar este Empleado?')
     if (res === true ) {

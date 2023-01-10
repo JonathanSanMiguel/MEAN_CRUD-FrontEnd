@@ -116,9 +116,9 @@ th {
 }
 
 /* Iterar de colores los registros */
-tbody tr:nth-child(even){
-    background: white;
-}
+/* tbody tr:nth-child(even){
+    background-color: white;
+} */
 
 /* Propiedad de los renglones */
 td {
@@ -129,6 +129,10 @@ td {
     font-family: sans-serif;
     border: none;
     cursor: pointer;
+}
+
+tr:active{
+    background-color: #fff;
 }
 
 /* Difuminar el fondo */

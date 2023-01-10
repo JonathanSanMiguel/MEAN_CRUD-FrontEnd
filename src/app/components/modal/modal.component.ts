@@ -34,10 +34,14 @@ export class ModalComponent {
 
   deleteEmployee(id: string){
     const res = confirm('Estas seguro de borrar este Empleado?')
-    if (res) {
+    if (res === true ) {
       this.employeService.Delete(id)
-    } else {
-      
+        .subscribe(res => {
+          this.employeService.Read()
+          this.closeModal()
+          console.log(res);
+        }
+      )
     }
   }
 

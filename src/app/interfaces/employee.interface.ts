@@ -7,5 +7,5 @@ export interface EmployeeResponse{
     salary: number
     createdAt: string
     updatedAt: string
-    _id?: string
+    _id: string
 }

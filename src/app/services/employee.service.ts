@@ -13,6 +13,7 @@ export class EmployeeService {
 
   modal = new EventEmitter()
   empleadoSeleccionado: EmployeeResponse = {
+    _id: '',
     name: '',
     position: '',
     office: '',

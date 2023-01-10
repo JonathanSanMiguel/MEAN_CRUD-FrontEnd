@@ -1,10 +1,13 @@
 /* Moodal */
 .bgModal{
-    width: 99%;
+    width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.7);
     position: absolute;
     top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -13,6 +16,7 @@
 .modalContent{
     width: 500px;
     height: 400px;
+    position: relative;
     border-radius: 4px;
 }
 
@@ -25,7 +29,7 @@
 label{
     color: #2d362c;
     font-size: 19px;
-    font: sans-serif;
+    font-family: sans-serif;
     letter-spacing: 1px;
     width: 100%;
     max-width: 100%;
@@ -45,7 +49,8 @@ input{
 
 .divDate{
     text-align: center;
-    font-size: 10px;
+    font-size: 7px;
+    font-family: sans-serif;
     margin: 5px;
 }
 

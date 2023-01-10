@@ -64,17 +64,5 @@ export class EmployeeComponent implements OnInit {
     this.employeService.empleadoSeleccionado = item
   }
 
-  deleteEmployee(id: string){
-    const res = confirm('Estas seguro de borrar este Empleado?')
-    if (res === true ) {
-      this.employeService.Delete(id)
-        .subscribe(res => {
-          this.getEmpleado()
-          console.log(res);
-        }
-      )
-    }
-  }
-
   //El observable sirve para quedarse escuchando posibles cambios
 }

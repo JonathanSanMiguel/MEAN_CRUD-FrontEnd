@@ -29,12 +29,12 @@
       <div class="divDate">
         <label>
           <i class="fa-solid fa-calendar-days"></i>
-          Empleado Creado el: {{empleado.createdAt}}
+          <strong> Empleado Creado el: </strong> <br> {{empleado.createdAt}}
         </label>
-  
+        <br>
         <label>
           <i class="fa-solid fa-clock"></i>
-          Ultima vez actualizado: {{empleado.updatedAt}}
+          <strong> Ultima vez actualizado: </strong> <br> {{empleado.updatedAt}}
         </label>
       </div>
 
@@ -47,7 +47,7 @@
           Agregar Cambios <i class="fa-solid fa-floppy-disk"></i>
         </button>
 
-        <button class="btnEliminar">
+        <button class="btnEliminar" (click)="deleteEmployee(empleado._id)" >
           ELIMINAR <i class="fa-solid fa-trash-can"></i>
         </button>
       </div>

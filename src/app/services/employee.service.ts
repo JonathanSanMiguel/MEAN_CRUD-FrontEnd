@@ -12,6 +12,14 @@ export class EmployeeService {
   constructor( private http: HttpClient ) { }
 
   modal = new EventEmitter()
+  empleadoSeleccionado: EmployeeResponse = {
+    name: '',
+    position: '',
+    office: '',
+    salary: 0,
+    createdAt: '',
+    updatedAt: ''
+  }
 
   // Endpoint de la api REST
   private Api_Url = 'http://localhost:4000/rest'

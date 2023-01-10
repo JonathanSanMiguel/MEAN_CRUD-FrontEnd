@@ -60,8 +60,8 @@ export class EmployeeComponent implements OnInit {
     )
   }
 
-  updateEmploye(_id: string){
-    console.log(_id);
+  updateEmploye(item: EmployeeResponse){
+    this.employeService.empleadoSeleccionado = item
   }
 
   deleteEmployee(id: string){

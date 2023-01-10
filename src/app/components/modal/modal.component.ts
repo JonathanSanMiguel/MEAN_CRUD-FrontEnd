@@ -9,7 +9,6 @@ import { FormGroup, Validators, FormBuilder } from '@angular/forms';
   styleUrls: ['./modal.component.css']
 })
 export class ModalComponent {
-  items: EmployeeResponse[] = []
 
   constructor( private employeService: EmployeeService, private fb: FormBuilder ){}
 
@@ -25,12 +24,8 @@ export class ModalComponent {
     this.employeService.modal.emit(false)
   }
 
-  getEmpleado(){
-    this.employeService.Read().subscribe(
-      (res) => {
-        this.items = res
-      }
-    )
+  get empleado(){
+    return this.employeService.empleadoSeleccionado
   }
 
   updateEmpleado(){

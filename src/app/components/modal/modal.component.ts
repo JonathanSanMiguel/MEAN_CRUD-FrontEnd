@@ -29,11 +29,13 @@ export class ModalComponent {
   }
 
   updateEmpleado(){
-    console.log('Actualizando');
+    console.log(this.formularioUpdate.value);
   }
 
   deleteEmployee(id: string){
+
     const res = confirm('Estas seguro de borrar este Empleado?')
+
     if (res === true ) {
       this.employeService.Delete(id)
         .subscribe(res => {

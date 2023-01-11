@@ -55,7 +55,7 @@ export class EmployeeComponent implements OnInit {
   getEmpleado(){
     this.employeService.Read().subscribe(
       (res) => {
-        this.items = res
+        this.items = res.reverse()
       }
     )
   }

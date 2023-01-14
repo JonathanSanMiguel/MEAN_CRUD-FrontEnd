@@ -1,6 +1,6 @@
 <!-- Ventana Modal -->
-<div class="bgModal">
-  <div class="modalContent" [formGroup]="formularioUpdate" (ngSubmit)="updateEmpleado()" >
+<div class="bgModal animate__animated animate__fadeInDownBig">
+  <div class="modalContent animate__animated animate__backInDown" [formGroup]="formularioUpdate" (ngSubmit)="updateEmpleado()" >
     <form class="formModal">
       <label>
         <i class="fa-solid fa-user"></i> 
@@ -46,11 +46,11 @@
         <button class="btnEditar" type="submit"> 
           Agregar Cambios <i class="fa-solid fa-floppy-disk"></i>
         </button>
-
-        <button class="btnEliminar" (click)="deleteEmployee(empleado._id)" >
-          ELIMINAR <i class="fa-solid fa-trash-can"></i>
-        </button>
       </div>
+
+      <button class="btnEliminar" (click)="deleteEmployee(empleado._id)" >
+        ELIMINAR <i class="fa-solid fa-trash-can"></i>
+      </button>
     </form>
   </div>
 </div>

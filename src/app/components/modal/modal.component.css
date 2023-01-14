@@ -92,10 +92,11 @@ input{
     border: none;
 }
 
-.btns{
-    align-items: center;
-    justify-content: space-evenly;
-}
+/* .btns{
+    display: grid;
+    grid-template-columns: 50% 50%;
+    
+} */
 
 .btnEliminar{
     border: none;

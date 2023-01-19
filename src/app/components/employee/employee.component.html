@@ -9,7 +9,7 @@
       <i class="fa-solid fa-user"></i> 
       Nombre(s): 
     </label>
-    <input type="text" formControlName="name" placeholder="Ingrese El Nombre" required>
+    <input type="text" formControlName="name" minlength="5"placeholder="Ingrese El Nombre">
 
     <label>
       <i class="fa-solid fa-people-group"></i>
@@ -18,7 +18,7 @@
     <input type="text" formControlName="position" placeholder="Ingrese la Posicion" required>
 
     <label>
-      <i class="fa-regular fa-building"></i>
+      <i class="fa-solid fa-building"></i>
       Oficina:
     </label>
     <input type="text" formControlName="office" placeholder="Ingrese la Oficina" required>
@@ -29,11 +29,13 @@
     </label>
     <input type="number" formControlName="salary" placeholder="Ingrese el Salario" required>
 
-    <button class="btnAgregar" type="submit"> 
+    <button class="btnAgregar" type="submit" [disabled]="formularioCRUD.invalid"> 
       Agregar <i class="fa-solid fa-floppy-disk"></i>
     </button>
   </form>
 </div>
+
+
 
 <div class="divSpan">
   <span><i class="fa-solid fa-circle-info"></i> Seleccione un registro para editarlo </span>
@@ -44,7 +46,7 @@
   <table>
     <thead>
       <tr>
-        <th> # </th>
+        <th> No. </th>
         <th> Nombre(s) </th>
         <th> Posicion </th>
         <th> Oficina </th>
@@ -63,6 +65,7 @@
     </tbody>
   </table>
 </div>
+
 
 <div *ngIf="SwitchModal == true">
   <app-modal></app-modal>

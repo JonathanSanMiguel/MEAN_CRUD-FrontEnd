@@ -1,30 +1,38 @@
 <!-- Ventana Modal -->
 <div class="bgModal animate__animated animate__fadeInDownBig">
-  <div class="modalContent animate__animated animate__backInDown" [formGroup]="formularioUpdate" (ngSubmit)="updateEmpleado()" >
-    <form class="formModal">
-      <label>
-        <i class="fa-solid fa-user"></i> 
-        Nombre(s): 
-      </label>
-      <input type="text" formControlName="name" value="{{empleado.name}}" placeholder="Ingrese El Nombre" required>
+  <div class="modalContent animate__animated animate__backInDown">
+    <form class="formModal" [formGroup]="formularioUpdate" (ngSubmit)="updateEmpleado()">
+      <div>
+        <label>
+          <i class="fa-solid fa-user"></i> 
+          Nombre(s): 
+        </label>
+        <input type="text" formControlName="name" value="{{empleado.name}}" placeholder="Ingrese El Nombre">
+      </div>
   
-      <label>
-        <i class="fa-solid fa-people-group"></i>
-        Posicion: 
-      </label>
-      <input type="text" formControlName="position" value="{{empleado.position}}" placeholder="Ingrese la Posicion" required>
+      <div>
+        <label>
+          <i class="fa-solid fa-people-group"></i>
+          Posicion:
+        </label>
+        <input type="text" formControlName="position" value="{{empleado.position}}" placeholder="Ingrese la Posicion">
+      </div>
 
-      <label>
-        <i class="fa-solid fa-building"></i>
-        Oficina:
-      </label>
-      <input type="text" formControlName="office" value="{{empleado.office}}" placeholder="Ingrese la Oficina" required>
+      <div>
+        <label>
+          <i class="fa-solid fa-building"></i>
+          Oficina:
+        </label>
+        <input type="text" formControlName="office" value="{{empleado.office}}" placeholder="Ingrese la Oficina">
+      </div>
   
-      <label>
-        <i class="fa-solid fa-money-bill-1-wave"></i>
-        Salario: 
-      </label>
-      <input type="number" formControlName="salary" value="{{empleado.salary}}" placeholder="Ingrese el Salario" required>
+      <div>
+        <label>
+          <i class="fa-solid fa-money-bill-1-wave"></i>
+          Salario: 
+        </label>
+        <input type="number" formControlName="salary" value="{{empleado.salary}}" placeholder="Ingrese el Salario">
+      </div>
 
       <div class="divDate">
         <label>

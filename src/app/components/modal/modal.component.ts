@@ -1,6 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { EmployeeService } from '../../services/employee.service';
-import { EmployeeResponse } from '../../interfaces/employee.interface';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 
 @Component({
@@ -8,16 +7,20 @@ import { FormGroup, Validators, FormBuilder } from '@angular/forms';
   templateUrl: './modal.component.html',
   styleUrls: ['./modal.component.css']
 })
-export class ModalComponent {
+export class ModalComponent implements OnInit {
 
   constructor( private employeService: EmployeeService, private fb: FormBuilder ){}
 
+  ngOnInit(): void {
+    this.empleado
+  }
+
   // Validacion de los datos del form.
   formularioUpdate: FormGroup = this.fb.group({
-    name: ['',[Validators.required,  Validators.minLength(4), Validators.maxLength(25)]],
-    position: ['', [Validators.required, Validators.maxLength(12)]],
-    office: ['', [Validators.required, Validators.maxLength(10)]],
-    salary: ['', [Validators.required, Validators.maxLength(10), Validators.minLength(3)]]
+    name: [, [Validators.required,  Validators.minLength(4), Validators.maxLength(25)]],
+    position: [, [Validators.required, Validators.maxLength(12)]],
+    office: [, [Validators.required, Validators.maxLength(10)]],
+    salary: [, [Validators.required, Validators.maxLength(10), Validators.minLength(3)]]
   })
 
   closeModal(){

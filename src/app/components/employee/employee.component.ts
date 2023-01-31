@@ -25,31 +25,37 @@ export class EmployeeComponent implements OnInit {
 
   // Validacion de los datos del form.
   formularioCRUD: FormGroup = this.fb.group({
-    name: ['',[Validators.required,  Validators.minLength(4), Validators.maxLength(25)]],
-    position: ['', [Validators.required, Validators.maxLength(12)]],
-    office: ['', [Validators.required, Validators.maxLength(10)]],
-    salary: ['', [Validators.required, Validators.maxLength(10), Validators.minLength(3)]]
+    name: [, [Validators.required, Validators.minLength(3), Validators.maxLength(25)]],
+    position: [, [Validators.required, Validators.minLength(4), Validators.maxLength(12)]],
+    office: [, [Validators.required, Validators.minLength(3), Validators.maxLength(10)]],
+    salary: ['', [Validators.required, Validators.min(0)]]
   })
 
-  openModal(){
-    this.SwitchModal = true
+  campoEsValid( campo: string ){
+    return this.formularioCRUD.controls[campo].errors && this.formularioCRUD.controls[campo].touched
   }
 
-  // Metodo para enviarle los valores al servicio.
-  addEmpleado(){
-    const { name, position, office, salary } = this.formularioCRUD.value
+  openModal(){ this.SwitchModal = true }
 
-    this.employeService.Create( name, position, office, salary )
-      .subscribe(res => {
-        if (res === true) {
-          this.getEmpleado()
-          this.formularioCRUD.reset()  
-          console.log(res.msg)
-        } else {
-          console.log(res);
+  guardar() {
+    if (this.formularioCRUD.invalid) {
+      this.formularioCRUD.markAllAsTouched()
+      return
+    } else {
+      const { name, position, office, salary } = this.formularioCRUD.value
+
+      this.employeService.Create( name, position, office, salary )
+        .subscribe(res => {
+          if (res === true) {
+            this.getEmpleado()
+            this.formularioCRUD.reset()  
+            console.log(res.msg)
+          } else {
+            console.log(res);
+          }
         }
-      }
-    )
+      )
+    }
   }
 
   getEmpleado(){
@@ -61,7 +67,7 @@ export class EmployeeComponent implements OnInit {
   }
 
   updateEmploye(item: EmployeeResponse){
-    this.employeService.empleadoSeleccionado = item
+    this.employeService.empleadoSeleccionado == item
   }
 
   //El observable sirve para quedarse escuchando posibles cambios

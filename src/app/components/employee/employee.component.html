@@ -1,38 +1,77 @@
 <!-- Form -->
-<div class="cardFull animate__animated animate__backInDown" [formGroup]="formularioCRUD" (ngSubmit)="addEmpleado()">
+<div class="row cardFull animate__animated animate__backInDown">
 
   <h2> Ingrese los datos del empleado <i class="fa-solid fa-person-circle-plus"></i> </h2>
   <hr>
 
-  <form class="formCreate">
-    <label>
-      <i class="fa-solid fa-user"></i> 
-      Nombre(s): 
-    </label>
-    <input type="text" formControlName="name" minlength="5"placeholder="Ingrese El Nombre">
+  <form class="formCreate" [formGroup]="formularioCRUD" (ngSubmit)="guardar()">
+    <div class="divCampo">
+      <label>
+        <i class="fa-solid fa-user"></i> 
+        Nombre(s): 
+      </label>
+      <input type="text" formControlName="name" placeholder="Ingrese El Nombre">
+      <span class="alerta" *ngIf="campoEsValid('name')">
+        *Debe contener al menos 3 letras
+      </span>
+    </div>
 
-    <label>
-      <i class="fa-solid fa-people-group"></i>
-      Posicion: 
-    </label>
-    <input type="text" formControlName="position" placeholder="Ingrese la Posicion" required>
+    <div class="divCampo">
+      <label>
+        <i class="fa-solid fa-people-group"></i>
+        Posicion: 
+      </label>
+      <input type="text" formControlName="position" placeholder="Ingrese la Posicion">
+      <span class="alerta" *ngIf="campoEsValid('position')">
+        *Debe contener al menos 4 letras
+      </span>
+    </div>
 
-    <label>
-      <i class="fa-solid fa-building"></i>
-      Oficina:
-    </label>
-    <input type="text" formControlName="office" placeholder="Ingrese la Oficina" required>
+    <div class="divCampo">
+      <label>
+        <i class="fa-solid fa-building"></i>
+        Oficina:
+      </label>
+      <input type="text" formControlName="office" placeholder="Ingrese la Oficina">
+      <span class="alerta" *ngIf="campoEsValid('office')">
+        *Debe contener al menos 3 letras
+      </span>
+    </div>
 
-    <label>
-      <i class="fa-solid fa-money-bill-1-wave"></i>
-      Salario: 
-    </label>
-    <input type="number" formControlName="salary" placeholder="Ingrese el Salario" required>
+    <div class="divCampo">
+      <label>
+        <i class="fa-solid fa-money-bill-1-wave"></i>
+        Salario: 
+      </label>
+      <input type="number" formControlName="salary" placeholder="Ingrese el Salario">
+      <span class="alerta" *ngIf="campoEsValid('salary')">
+        *Debe contener un numero positivo
+      </span>
+    </div>
 
-    <button class="btnAgregar" type="submit" [disabled]="formularioCRUD.invalid"> 
+    <!-- [disabled]="formularioCRUD.invalid" -->
+
+    <button class="btnAgregar" type="submit"> 
       Agregar <i class="fa-solid fa-floppy-disk"></i>
     </button>
   </form>
+</div>
+
+
+<div class="row">
+  <div class="col">
+    <span> Valid </span>
+    <pre> {{formularioCRUD.valid}} </pre>
+
+    <!-- <span> Pristine </span>
+    <pre> {{formularioCRUD.pristine}} </pre> -->
+
+    <span> Touched </span>
+    <pre> {{formularioCRUD.touched}} </pre>
+<!-- 
+    <span> Value </span>
+    <pre> {{formularioCRUD.value | json}} </pre> -->
+  </div>
 </div>
 
 
@@ -55,7 +94,7 @@
     </thead>
 
     <tbody>
-      <tr (click)="openModal()" (click)="updateEmploye(item)" *ngFor="let item of items; let i = index" >
+      <tr (click)="openModal()" (click)="updateEmploye(item)" title="Creado El: {{item.createdAt}}" *ngFor="let item of items; let i = index" >
         <td> {{i + 1}} </td>
         <td> <strong> {{item.name}} </strong> </td>
         <td> {{item.position}} </td>

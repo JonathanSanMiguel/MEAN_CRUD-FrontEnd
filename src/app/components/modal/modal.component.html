@@ -2,20 +2,34 @@
 <div class="bgModal animate__animated animate__fadeInDownBig">
   <div class="modalContent animate__animated animate__backInDown">
     <form class="formModal" [formGroup]="formularioUpdate" (ngSubmit)="updateEmpleado()">
+      <!-- Nombre -->
       <div>
         <label>
           <i class="fa-solid fa-user"></i> 
           Nombre(s): 
         </label>
-        <input type="text" formControlName="name" value="{{empleado.name}}" placeholder="Ingrese El Nombre">
+
+        <input
+          type="text"
+          formControlName="name"
+          value="{{this.empleado.position}}"
+          placeholder="Ingrese El Nombre"
+        >
       </div>
   
+      <!-- Pocision -->
       <div>
         <label>
           <i class="fa-solid fa-people-group"></i>
           Posicion:
         </label>
-        <input type="text" formControlName="position" value="{{empleado.position}}" placeholder="Ingrese la Posicion">
+
+        <input
+          type="text"
+          formControlName="position"
+          value="{{this.empleado.position}}"
+          placeholder="Ingrese la Posicion"
+        >
       </div>
 
       <div>
@@ -23,7 +37,13 @@
           <i class="fa-solid fa-building"></i>
           Oficina:
         </label>
-        <input type="text" formControlName="office" value="{{empleado.office}}" placeholder="Ingrese la Oficina">
+
+        <input
+          type="text"
+          formControlName="office"
+          value="{{empleado.office}}"
+          placeholder="Ingrese la Oficina"
+        >
       </div>
   
       <div>
@@ -31,7 +51,12 @@
           <i class="fa-solid fa-money-bill-1-wave"></i>
           Salario: 
         </label>
-        <input type="number" formControlName="salary" value="{{empleado.salary}}" placeholder="Ingrese el Salario">
+        <input
+          type="number"
+          formControlName="salary"
+          value="{{empleado.salary}}"
+          placeholder="Ingrese el Salario"
+        >
       </div>
 
       <div class="divDate">

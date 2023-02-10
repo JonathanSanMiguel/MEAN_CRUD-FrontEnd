@@ -10,8 +10,10 @@ import { EmployeeResponse } from '../../interfaces/employee.interface';
 })
 
 export class EmployeeComponent implements OnInit {
+
   items: EmployeeResponse[] = []
   SwitchModal: Boolean = false
+  datosParaActualizar!: EmployeeResponse
 
   // Inyeccion de los servicios.
   constructor( private fb: FormBuilder, private employeService: EmployeeService ){}
@@ -35,7 +37,12 @@ export class EmployeeComponent implements OnInit {
     return this.formularioCRUD.controls[campo].errors && this.formularioCRUD.controls[campo].touched
   }
 
-  openModal(){ this.SwitchModal = true }
+  openModal(datos: EmployeeResponse){
+    this.datosParaActualizar = datos
+    //console.log(datos)
+    console.log(this.datosParaActualizar);
+    this.SwitchModal = true
+  }
 
   guardar() {
     if (this.formularioCRUD.invalid) {
@@ -66,9 +73,9 @@ export class EmployeeComponent implements OnInit {
     )
   }
 
-  updateEmploye(item: EmployeeResponse){
-    this.employeService.empleadoSeleccionado == item
-  }
+  // updateEmploye(item: EmployeeResponse){
+  //   this.employeService.empleadoSeleccionado == item
+  // }
 
   //El observable sirve para quedarse escuchando posibles cambios
 }

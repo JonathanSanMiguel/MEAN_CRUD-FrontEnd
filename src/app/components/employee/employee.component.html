@@ -21,7 +21,8 @@
         <i class="fa-solid fa-people-group"></i>
         Posicion: 
       </label>
-      <input type="text" formControlName="position" placeholder="Ingrese la Posicion">
+      <input
+        type="text" formControlName="position" placeholder="Ingrese la Posicion">
       <span class="alerta" *ngIf="campoEsValid('position')">
         *Debe contener al menos 4 letras
       </span>
@@ -94,7 +95,7 @@
     </thead>
 
     <tbody>
-      <tr (click)="openModal()" (click)="updateEmploye(item)" title="Creado El: {{item.createdAt}}" *ngFor="let item of items; let i = index" >
+      <tr (click)="openModal(item)"  title="Creado El: {{item.createdAt}}" *ngFor="let item of items; let i = index" >
         <td> {{i + 1}} </td>
         <td> <strong> {{item.name}} </strong> </td>
         <td> {{item.position}} </td>
@@ -107,5 +108,5 @@
 
 
 <div *ngIf="SwitchModal == true">
-  <app-modal></app-modal>
+  <app-modal [empleado]="datosParaActualizar"></app-modal>
 </div>
